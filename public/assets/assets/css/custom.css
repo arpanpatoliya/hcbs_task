@@ -1,0 +1,11 @@
+.error-help-block{
+    color: red;
+}
+
+.current{
+    background: #01a9ac !important;
+}
+
+.min-wd-50{
+    min-width: 50px;
+}
