@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ClinicianLoginRequest extends FormRequest
@@ -9,9 +10,9 @@ class ClinicianLoginRequest extends FormRequest
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function failedValidation(Validator $validator)
     {
-        return false;
+        return $validator;
     }
 
     /**
@@ -22,7 +23,13 @@ class ClinicianLoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'email' => [
+                'required',
+                'email'
+            ],
+            'password' => [
+                'required'
+            ]
         ];
     }
 }

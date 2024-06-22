@@ -3,7 +3,7 @@
 
 
 <head>
-    <title>digi-receipt Vendor</title>
+    <title>HCBS | Login</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -19,7 +19,11 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/assets/css/style.css">
-
+    <style>
+        .error-help-block{
+            color: red;
+        }
+    </style>
 </head>
 
 <body class="fix-menu">
@@ -67,7 +71,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <form action="{{ route('clinician_checkauth') }}" method="post" class="md-float-material form-material" id="form-login">
-                        
+                        @csrf
                         <div class="text-center">
                         </div>
                         <div class="auth-box card">
@@ -108,8 +112,13 @@
     <script type="text/javascript" src="{{ asset('assets') }}/assets/js/common-pages.js"></script>
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     {!! JsValidator::formRequest('App\Http\Requests\ClinicianLoginRequest', '#form-login') !!}
+    @include('notify')
+    @if (Session::has('message'))
+    <script>
+        var message = '{{ Session::get('message') }}';
+        notify(message);
+    </script>
+    @endif
 </body>
-
-<!-- Mirrored from demo.dashboardpack.com/adminty-html/default/auth-normal-sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 09 Oct 2023 07:30:29 GMT -->
 
 </html>
