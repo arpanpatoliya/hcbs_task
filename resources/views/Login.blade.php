@@ -19,6 +19,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/snackbar/snackbar.min.css" media="screen" title="no title" charset="utf-8">
+
     <style>
         .error-help-block{
             color: red;
@@ -70,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="{{ route('clinician_checkauth') }}" method="post" class="md-float-material form-material" id="form-login">
+                    <form action="{{ route('clinician-checkauth') }}" method="post" class="md-float-material form-material" id="form-login">
                         @csrf
                         <div class="text-center">
                         </div>
@@ -111,6 +113,8 @@
     <script type="text/javascript" src="{{ asset('assets') }}/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('assets') }}/assets/js/common-pages.js"></script>
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+    <script src="{{ asset('assets') }}/snackbar/snackbar.min.js" charset="utf-8"></script>
+
     {!! JsValidator::formRequest('App\Http\Requests\ClinicianLoginRequest', '#form-login') !!}
     @include('notify')
     @if (Session::has('message'))

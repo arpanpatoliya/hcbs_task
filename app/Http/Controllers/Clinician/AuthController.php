@@ -14,27 +14,35 @@ class AuthController extends Controller
     function authCheck(ClinicianLoginRequest $request) {
         $validated = $request->validated();
     
-        // Directly use the $validated array to extract credentials
         $credentials = [
             'email' => $validated['email'],
             'password' => $validated['password'],
         ];
     
-        $authCheck = Auth::guard('clinician')->attempt($credentials);
+        try {
+            $authCheck = Auth::guard('clinician')->attempt($credentials);
 
-        if ($authCheck) {
-            dd(Auth::guard('clinician')->user());
+            if ($authCheck) {
+                Session::flash('message','successfully logged in');
+                return redirect()->route('clinician-dashbord');
+            };
+            Session::flash('message','invalid credentials');
+            return redirect()->back();
+
+        } catch (\Exception $ex) {
+            Session::flash('message',$ex->getMessage());
+            return redirect()->back();
         }
 
     }
 
     function logout() {
-        if (Auth::guard('')->check()) {
-            Auth::guard()->logout();
+        if (Auth::guard('clinician')->check()) {
+            Auth::guard('clinician')->logout();
             Session::flash('message','successfully logged-out');
-            return redirect()->route('clinician_login');
+            return redirect()->route('clinician-login');
         }
         Session::flash('message','Please Login');
-        return redirect()->route('clinician_login');
+        return redirect()->route('clinician-login');
     }
 }

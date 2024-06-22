@@ -17,9 +17,9 @@ class ClinicianMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard('clinician')->check()) {
+        if (!Auth::guard('clinician')->check()) {
             Session::flash('message','Not Allowed');
-            return redirect()->route('clinician_login');
+            return redirect()->route('clinician-login');
         }
         return $next($request);
     }
