@@ -7,9 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ClinicianLoginRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function failedValidation(Validator $validator)
     {
         return $validator;

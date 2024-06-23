@@ -5,7 +5,7 @@
                 <i class="feather icon-menu"></i>
             </a>
             <a href="index-2.html">
-                <img style="width: 150px" class="img-fluid" src="{{ asset('images') }}/digi-receipt-logo-removebg-preview.png" alt="Theme-Logo" />
+             
             </a>
             <a class="mobile-options">
                 <i class="feather icon-more-horizontal"></i>
@@ -46,7 +46,7 @@
                             <li>
                                 <div class="media">
                                     <img class="d-flex align-self-center img-radius"
-                                        src="{{ asset('backend_assets') }}/assets/images/avatar-4.jpg"
+                                        src="{{ asset('assets') }}/assets/images/avatar-4.jpg"
                                         alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="notification-user">John Doe</h5>
@@ -60,7 +60,7 @@
                             <li>
                                 <div class="media">
                                     <img class="d-flex align-self-center img-radius"
-                                        src="{{ asset('backend_assets') }}/assets/images/avatar-3.jpg"
+                                        src="{{ asset('assets') }}/assets/images/avatar-3.jpg"
                                         alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="notification-user">Joseph William</h5>
@@ -74,7 +74,7 @@
                             <li>
                                 <div class="media">
                                     <img class="d-flex align-self-center img-radius"
-                                        src="{{ asset('backend_assets') }}/assets/images/avatar-4.jpg"
+                                        src="{{ asset('assets') }}/assets/images/avatar-4.jpg"
                                         alt="Generic placeholder image">
                                     <div class="media-body">
                                         <h5 class="notification-user">Sara Soudein</h5>
@@ -160,7 +160,7 @@
                         title="Josephin Doe">
                         <a class="media-left" href="#!">
                             <img class="media-object img-radius img-radius"
-                                src="{{ asset('backend_assets') }}/assets/images/avatar-3.jpg" alt="Generic placeholder image ">
+                                src="{{ asset('assets') }}/assets/images/avatar-3.jpg" alt="Generic placeholder image ">
                             <div class="live-status bg-success"></div>
                         </a>
                         <div class="media-body">
@@ -171,7 +171,7 @@
                         data-username="Lary Doe" data-toggle="tooltip" data-placement="left"
                         title="Lary Doe">
                         <a class="media-left" href="#!">
-                            <img class="media-object img-radius" src="{{ asset('backend_assets') }}/assets/images/avatar-2.jpg"
+                            <img class="media-object img-radius" src="{{ asset('assets') }}/assets/images/avatar-2.jpg"
                                 alt="Generic placeholder image">
                             <div class="live-status bg-success"></div>
                         </a>
@@ -183,7 +183,7 @@
                         data-username="Alice" data-toggle="tooltip" data-placement="left"
                         title="Alice">
                         <a class="media-left" href="#!">
-                            <img class="media-object img-radius" src="{{ asset('backend_assets') }}/assets/images/avatar-4.jpg"
+                            <img class="media-object img-radius" src="{{ asset('assets') }}/assets/images/avatar-4.jpg"
                                 alt="Generic placeholder image">
                             <div class="live-status bg-success"></div>
                         </a>
@@ -194,7 +194,7 @@
                     <div class="media userlist-box" data-id="4" data-status="online"
                         data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
                         <a class="media-left" href="#!">
-                            <img class="media-object img-radius" src="{{ asset('backend_assets') }}/assets/images/avatar-3.jpg"
+                            <img class="media-object img-radius" src="{{ asset('assets') }}/assets/images/avatar-3.jpg"
                                 alt="Generic placeholder image">
                             <div class="live-status bg-success"></div>
                         </a>
@@ -206,7 +206,7 @@
                         data-username="Suzen" data-toggle="tooltip" data-placement="left"
                         title="Suzen">
                         <a class="media-left" href="#!">
-                            <img class="media-object img-radius" src="{{ asset('backend_assets') }}/assets/images/avatar-2.jpg"
+                            <img class="media-object img-radius" src="{{ asset('assets') }}/assets/images/avatar-2.jpg"
                                 alt="Generic placeholder image">
                             <div class="live-status bg-success"></div>
                         </a>
@@ -228,7 +228,7 @@
     </div>
     <div class="media chat-messages">
         <a class="media-left photo-table" href="#!">
-            <img class="media-object img-radius img-radius m-t-5" src="{{ asset('backend_assets') }}/assets/images/avatar-3.jpg"
+            <img class="media-object img-radius img-radius m-t-5" src="{{ asset('assets') }}/assets/images/avatar-3.jpg"
                 alt="Generic placeholder image">
         </a>
         <div class="media-body chat-menu-content">
@@ -250,7 +250,7 @@
         <div class="media-right photo-table">
             <a href="#!">
                 <img class="media-object img-radius img-radius m-t-5"
-                    src="{{ asset('backend_assets') }}/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                    src="{{ asset('assets') }}/assets/images/avatar-4.jpg" alt="Generic placeholder image">
             </a>
         </div>
     </div>

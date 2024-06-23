@@ -8,6 +8,18 @@
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
             </li>
+            <li class="{{ (request()->route()->getName() == 'clinician-slot') ? 'active' : ''}}">
+                <a href="{{ route('clinician-slot') }}">
+                    <span class="pcoded-micon"><i class="feather icon-aperture rotate-refresh"></i><b></b></span>
+                    <span class="pcoded-mtext">Slot</span>
+                </a>
+            </li>
+            <li class="{{ (request()->route()->getName() == 'clinician-appointment') ? 'active' : ''}}">
+                <a href="{{ route('clinician-appointment') }}">
+                    <span class="pcoded-micon"><i class="feather icon-aperture rotate-refresh"></i><b></b></span>
+                    <span class="pcoded-mtext">Appointment</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
