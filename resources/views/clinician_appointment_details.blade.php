@@ -25,6 +25,17 @@
                             <div class="card-header">
                                 {{-- <h5><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                                     data-target="#createRoleModal">Add Role</button></h5> --}}
+                                    <label>Complet Appointment :</label>
+                                    <input type="color" disabled value="#28a745" >
+                                        <br>
+                                    <label>Pending Appointment :</label>
+                                    <input type="color" disabled value="#ffc107" >
+                                    <br>
+                                    <label>Cancelled Appointment :</label>
+                                    <input type="color" disabled value="#fe5d70" >
+                                    <br>
+                                    <label>Confirmed Appointment :</label>
+                                    <input type="color" disabled value="#007bff" >
                             </div>
                             <div class="card-block">
                                 <div id="calendar"></div>

@@ -25,6 +25,11 @@
                             <div class="card-header">
                                 <h4><button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#createSlotModal">Add Slot</button></h4>
+                                <label>Booked Slot :</label>
+                                <input type="color" disabled value="#28a745" >
+                                    <br>
+                                <label>Available Slot :</label>
+                                <input type="color" disabled value="#ffc107" >
                             </div>
                             <div class="card-block">
                                 <div id="calendar"></div>

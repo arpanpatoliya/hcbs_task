@@ -3,6 +3,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
     <style>
         .card-block {
             height: 100%; /* Adjust height as needed */
@@ -89,6 +91,7 @@
                     <div class="form-group">
                         <label>Phone No.</label>
                         <input type="text" name="phone_number" id="mobile" placeholder="Enter Mobile No." class="form-control">
+                        <input type="hidden" name="fcm_token" value="" id="fcm_token">
                     </div>
                     <input type="hidden" name="signature" id="signature-input">
                     <label>Signature</label>
@@ -118,7 +121,12 @@
 {!! JsValidator::formRequest('App\Http\Requests\AppointmentSaveRequest', '#appointment-form') !!}
 <script src="{{ asset("js/bootbox.min.js") }}"></script>
 
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js"></script>
+<script src="{{ asset("js/firebase.js") }}"></script>
+
 <script>
+
     const canvas = document.querySelector("#signature-pad canvas");
         const signaturePad = new SignaturePad(canvas);
         const clearBtn = document.getElementById('clear-signature');

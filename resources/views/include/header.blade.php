@@ -122,11 +122,6 @@
                                     <i class="feather icon-mail"></i> Minimum Branch Wallet
                                 </a>
                             </li> --}}                          
-                            <li> 
-                                <a href="#">
-                                    <i class="feather icon-lock"></i> Change Password
-                                </a>
-                            </li>
                             <a href="{{ route("clinician-logout") }}" style="padding: 0 0;">
                                 <li style="line-height: 0;">    
                                         <i class="feather icon-log-out"></i> Logout

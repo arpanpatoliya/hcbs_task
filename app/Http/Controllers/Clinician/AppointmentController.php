@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\AppointmentRS;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Kreait\Firebase\Messaging\CloudMessage;
+use Kreait\Firebase\Messaging\Notification;
 
 class AppointmentController extends Controller
 {
@@ -49,8 +52,23 @@ class AppointmentController extends Controller
             $appointment->appointment_status = $request->status;
             $appointment->save();
 
+            if ($appointment->fcm_token) {
+                $messaging = app('firebase');
+                $body = 'Your Appointment '. $appointment->appointment_no.' has been ' .$request->status;
+    
+                $message = CloudMessage::withTarget('token', $appointment->fcm_token)
+                ->withNotification(Notification::create('Appointment Update', $body)); 
+                try {
+                    $response = $messaging->send($message);
+                    Session::flash('message','successfully updated');
+                    return redirect()->back();
+                } catch (\Kreait\Firebase\Exception\Messaging\NotFound $e) {
+                    Session::flash('message','Requested entity was not found.');
+                    return redirect()->back();
+
+                } 
+            }
             Session::flash('message','successfully updated');
-            return redirect()->back();
         }
         Session::flash('message','Appointment not found');
         return redirect()->back();

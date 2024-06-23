@@ -57,6 +57,7 @@ class SlotController extends Controller
             $appointment->email = $request->email;
             $appointment->phone_number = $request->phone_number;
             $appointment->signature = $filename;
+            $appointment->fcm_token = $request->fcm_token;
             $appointment->save();
 
             $slot->is_booked = 1;
