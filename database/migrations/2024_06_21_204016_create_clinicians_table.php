@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('clinicians', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('last_name');
             $table->string('email');
             $table->string('password');
             $table->string('profile')->nullable();

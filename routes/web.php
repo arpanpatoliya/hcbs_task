@@ -9,11 +9,15 @@ use App\Http\Controllers\Clinician\{
 };
 use App\Http\Middleware\ClinicianMiddleware;
 
-Route::get('/', function () {
+Route::get('/clinician', function () {
     return view('login');
 })->name('clinician-login');
 
 Route::post('clinician/AuthCheck',[AuthController::class,'authCheck'])->name('clinician-checkauth');
+Route::get('clinician/sign-up',function () {
+    return view('sign-up');
+})->name('clinician-sign_up');
+Route::post('/register',[AuthController::class,'signUp'])->name('clinician-register');
 
 Route::prefix('clinician')->middleware(ClinicianMiddleware::class)->group(function () {
     Route::get('dashbord',[DashbordController::class,'index'])->name('clinician-dashbord');

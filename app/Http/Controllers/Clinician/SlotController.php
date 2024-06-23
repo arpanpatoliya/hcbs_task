@@ -22,7 +22,8 @@ class SlotController extends Controller
     }
 
     function getSlots(Request $request) {
-        $slots = Slot::whereDate('start_time' , '>=', $request->start)
+        $slots = Slot::where('clinician_id',$this->loginClinician()['id'])
+            ->whereDate('start_time' , '>=', $request->start)
             ->whereDate('end_time', '<=', $request->end)->get();
 
         return response()->json([

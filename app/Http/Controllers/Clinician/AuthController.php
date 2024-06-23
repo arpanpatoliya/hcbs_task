@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Clinician;
 use App\Http\Controllers\Controller;
 use App\Models\Clinician;
 use Illuminate\Http\Request;
-use App\Http\Requests\ClinicianLoginRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
+use App\Http\Requests\{
+    ClinicianLoginRequest,
+    SignUpRequest
+};
+use Illuminate\Support\Facades\{
+    Auth,
+    Session
+};
 
 class AuthController extends Controller
 {
@@ -34,6 +39,25 @@ class AuthController extends Controller
             return redirect()->back();
         }
 
+    }
+
+    function signUp(SignUpRequest $request) {
+        $request->validated();
+        $clinician = new Clinician();
+        $clinician->name = $request->name;
+        $clinician->email = $request->email;
+        $clinician->password = $request->password;
+        $clinician->gender = $request->gender;
+        $clinician->save();
+
+        if ($clinician) {
+            Auth::guard('clinician')->login($clinician);
+            Session::flash('message','successfully Register');
+            return redirect()->route('clinician-dashbord');
+        }
+
+        Session::flash('message','Error While Register');
+        return redirect()->back();
     }
 
     function logout() {
