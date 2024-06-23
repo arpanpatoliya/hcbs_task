@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\UuidTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Log;
 
@@ -69,5 +70,9 @@ class Slot extends Model
         $lastSlotNo = self::withTrashed()->orderBy('slot_no', 'desc')->first();
         $newSlotNo = $lastSlotNo ? $lastSlotNo->slot_no + 1 : 1;        
         return $newSlotNo;
+    }
+
+    function clinician(): HasOne  {
+         return $this->hasOne(Clinician::class,'id','clinician_id');
     }
 }

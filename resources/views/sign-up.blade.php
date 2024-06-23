@@ -72,7 +72,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="{{ route('clinician-checkauth') }}" method="post" class="md-float-material form-material" id="form-login">
+                    <form action="{{ route('clinician-register') }}" method="post" class="md-float-material form-material" id="form-signup">
                         @csrf
                         <div class="text-center">
                         </div>
@@ -84,6 +84,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-primary">
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Your Full Name">
+                                    <span class="form-bar"></span>
+                                </div>
+                                <div class="form-group form-primary">
                                     <input type="text" name="email" class="form-control"
                                         placeholder="Your Email Address">
                                     <span class="form-bar"></span>
@@ -93,10 +98,23 @@
                                         placeholder="Password">
                                     <span class="form-bar"></span>
                                 </div>
+                                <div class="form-group form-primary">
+                                    <input type="password" name="password_confirmation" class="form-control"
+                                        placeholder="Password Confirmation">
+                                    <span class="form-bar"></span>
+                                </div>
+                                <div class="form-group form-primary">
+                                    <select name="gender" class="form-control">
+                                        <option value="{{ App\Enums\GenderEnum::MALE }}">{{ App\Enums\GenderEnum::MALE }}</option>
+                                        <option value="{{ App\Enums\GenderEnum::FEMALE }}">{{ App\Enums\GenderEnum::FEMALE }}</option>
+                                        <option value="{{ App\Enums\GenderEnum::OTHER }}">{{ App\Enums\GenderEnum::OTHER }}</option>
+                                    </select>
+                                    <span class="form-bar"></span>
+                                </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-12">
                                         <div class="forgot-phone text-right f-right">
-                                            <a href="{{ route('clinician-sign_up') }}" class="text-right f-w-600"> Sign-up?</a>
+                                            <a href="{{ route('clinician-login') }}" class="text-right f-w-600"> Login </a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,7 +122,7 @@
                                     <div class="col-md-12">
                                         <button type="submit"
                                             class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Sign
-                                            in</button>
+                                            UP</button>
                                     </div>
                                 </div>
                                 <hr />
@@ -122,7 +140,7 @@
     <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
     <script src="{{ asset('assets') }}/snackbar/snackbar.min.js" charset="utf-8"></script>
 
-    {!! JsValidator::formRequest('App\Http\Requests\ClinicianLoginRequest', '#form-login') !!}
+    {!! JsValidator::formRequest('App\Http\Requests\SignUpRequest', '#form-signup') !!}
     @include('notify')
     @if (Session::has('message'))
     <script>

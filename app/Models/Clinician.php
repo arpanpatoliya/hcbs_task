@@ -21,7 +21,6 @@ class Clinician extends Authenticatable
     protected $fillable =[
         'id',
         'name',
-        'last_name',
         'email',
         'password',
         'profile',

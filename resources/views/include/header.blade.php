@@ -96,6 +96,7 @@
                         </div>
                     </div>
                 </li> --}}
+                @if(auth('clinician')->check())
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-toggle="dropdown">
@@ -134,6 +135,8 @@
                         </ul>
                     </div>
                 </li>
+                @endif
+
             </ul>
         </div>
     </div>

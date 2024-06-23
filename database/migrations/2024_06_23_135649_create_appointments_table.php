@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clinicians', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->uuid('slot_id');
+            $table->uuid('clinician_id');
+            $table->string('appointment_no');
             $table->string('name');
             $table->string('email');
-            $table->string('password');
-            $table->string('profile')->nullable();
-            $table->string('occupation')->nullable();
-            $table->enum('gender',['Male','Female','Other']);
-            $table->boolean('status')->default(true);
+            $table->string('phone_number');
+            $table->string('signature');
+            $table->enum('appointment_status',['Confirmed','Cancelled','Completed','Pending'])->default('Pending');
+            $table->text('fcm_token')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clinicians');
+        Schema::dropIfExists('appointments');
     }
 };

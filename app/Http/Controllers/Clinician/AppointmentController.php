@@ -12,6 +12,6 @@ class AppointmentController extends Controller
     }
 
     function getAppointments(Request $request) {
-        dd($request->all());
+
     }
 }
