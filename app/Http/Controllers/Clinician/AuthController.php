@@ -57,6 +57,7 @@ class AuthController extends Controller
             return redirect()->route('clinician-dashbord');
         }
 
+        
         Session::flash('message','Error While Register');
         return redirect()->back();
     }
