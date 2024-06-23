@@ -175,4 +175,5 @@ class SlotController extends Controller
             ]);
         }
     }
+
 }

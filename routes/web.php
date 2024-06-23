@@ -25,6 +25,9 @@ Route::prefix('clinician')->middleware(ClinicianMiddleware::class)->group(functi
     Route::prefix('appointment')->group(function () {
         Route::get('/',[AppointmentController::class,'index'])->name('clinician-appointment');
         Route::post('getAppointments',[AppointmentController::class,'getAppointments'])->name('clinician-appointment_ajax');
+        Route::post('appointment-status/{id}',[AppointmentController::class,'appointmentStatus'])->name('clinician-appointment_status');
+        Route::post('/{appointment}',[AppointmentController::class,'getSingleAppointment'])->name('clinician-SingleAppointment');
+
     });
     Route::prefix('slot')->group(function () {
         Route::get('/',[SlotController::class,'index'])->name('clinician-slot');

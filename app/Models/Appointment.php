@@ -67,7 +67,7 @@ class Appointment extends Model
     public static function generateAppointmentID()
     {
         $lastAppointmentNo = self::orderBy('appointment_no', 'desc')->first();
-        $newAppointmentNo = $lastAppointmentNo ? ((int) str_replace('APPT', '', $lastAppointmentNo->invoice_no)) + 1 : 1;
+        $newAppointmentNo = $lastAppointmentNo ? ((int) str_replace('APPT', '', $lastAppointmentNo->appointment_no)) + 1 : 1;
 
         $AppointmentNo = str_pad($newAppointmentNo, 6, '0', STR_PAD_LEFT);
         return 'APPT' . $AppointmentNo;

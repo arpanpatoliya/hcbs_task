@@ -164,6 +164,7 @@
                 success: function(response) {
                     if (response.status && response.data) {
                         var events = response.data.map(function(event) {
+                            
                             var startTime = moment(event.start_time).format('HH:mm:ss');
                             var endTime = moment(event.end_time).format('HH:mm:ss');
                             return {
